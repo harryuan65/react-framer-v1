@@ -88,12 +88,25 @@ const ColumnRight = styled.div`
 `;
 
 const Hero = () => {
+  const fadeLeft = {
+    hidden: { opacity: 0, x: -100},
+    visible: {opacity: 1, x: 0}
+  }
   return (
     <Section>
       <Container>
         <ColumnLeft>
-          <h1>Welcome to Space</h1>
-          <p>Journey to the unknown</p>
+          <motion.h1
+            initial={{ opacity: 0}} // raw
+            animate={{ opacity: 1}}
+            transition={{ duration: 1}}
+          >Welcome to Space</motion.h1>
+          <motion.p
+            variants={fadeLeft}  //using variant
+            initial='hidden'
+            animate='visible'
+            transition={{ duration: 1}}
+          >Journey to the unknown</motion.p>
           <Button>Get Started</Button>
         </ColumnLeft>
         <ColumnRight>
