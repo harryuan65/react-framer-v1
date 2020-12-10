@@ -43,7 +43,7 @@ const ColumnLeft = styled.div`
     line-height: 1.1;
   }
 `;
-const Button = styled.button`
+const Button = styled(motion.button)`
   padding: 1rem 3rem;
   font-size: 1rem;
   border: 2px solid #fff;
@@ -107,7 +107,13 @@ const Hero = () => {
             animate='visible'
             transition={{ duration: 1}}
           >Journey to the unknown</motion.p>
-          <Button>Get Started</Button>
+          <Button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{scale: 0.95, backgroundColor: '#67f6e7', border: 'none', color: '#000'}}
+            initial={{ opacity: 0}}
+            animate={{ opacity: 1, transition: {duration: 1.5}}}
+            // transition={{duration: 1}} 這個會影響到整個，opacity要個別使用就放在上面
+          >Get Started</Button>
         </ColumnLeft>
         <ColumnRight>
           <Image src={PlanetBlack} alt="planet"/>
